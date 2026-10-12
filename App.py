@@ -2,55 +2,199 @@ import pandas as pd
 import streamlit as st
 
 st.set_page_config(
-    page_title="ارشاد سینیٹری مارٹ - پروفیشنل سافٹ ویئر", layout="wide"
+    page_title="ارشاد سینیٹری مارٹ - انٹپرائز مینجমেন্ট سسٹم", layout="wide"
 )
 
 # App Title & Branding
-fn_title = "🚰 ارشاد سینیٹری مارٹ - انٹرپرائز مینجمنٹ سسٹم"
-st.title(fn_title)
-st.markdown(
-    "---"
-)  # Enterprise-grade management for PPRC, PVC, Brass, Plastic, and Steel items.
+st.title("🚰 ارشاد سینیٹری مارٹ - مکمل انوینٹری و مینجمنٹ سسٹم")
+st.markdown("---")
 
-# Initialize Session State Databases
+# Initialize Session State Databases with Complete PPRC Catalog & Sizes
 if "inventory" not in st.session_state:
   st.session_state["inventory"] = {
-      "📦 PPRC سیکشن": pd.DataFrame([
+      "📦 PPRC سیکشن (مکمل سائز کیٹلاگ)": pd.DataFrame([
           {
-              "Item Name": "PPRC Pipe 20mm (1/2\")",
+              "Item Name": "PPRC Pipe (ਪੀਪੀਆਰਸੀ ਪਾਈਪ) - 20mm",
               "Stock": 25,
-              "Cost Price": 300,
-              "Sale Price": 400,
+              "Cost Price": 280,
+              "Sale Price": 380,
           },
           {
-              "Item Name": "PPRC Pipe 25mm (3/4\")",
+              "Item Name": "PPRC Pipe (ਪੀਪੀਆਰਸੀ ਪਾਈਪ) - 25mm",
+              "Stock": 30,
+              "Cost Price": 400,
+              "Sale Price": 520,
+          },
+          {
+              "Item Name": "PPRC Pipe (ਪੀਪੀਆਰਸੀ ਪਾਈਪ) - 32mm",
               "Stock": 20,
-              "Cost Price": 420,
-              "Sale Price": 550,
+              "Cost Price": 650,
+              "Sale Price": 850,
           },
           {
-              "Item Name": "PPRC Elbow 20mm",
+              "Item Name": "PPRC Pipe (ਪੀਪੀਆਰਸੀ ਪਾਈਪ) - 40mm",
+              "Stock": 15,
+              "Cost Price": 1100,
+              "Sale Price": 1400,
+          },
+          {
+              "Item Name": "PPRC Pipe (ਪੀਪੀਆਰਸੀ ਪਾਈਪ) - 50mm & 63mm",
+              "Stock": 10,
+              "Cost Price": 1800,
+              "Sale Price": 2300,
+          },
+          {
+              "Item Name": (
+                  "Elbow (ایلبو) - 25mm, 32mm, 40mm, 50mm, 63mm"
+              ),
+              "Stock": 50,
+              "Cost Price": 30,
+              "Sale Price": 50,
+          },
+          {
+              "Item Name": "TEE (ٹی) - 25mm, 32mm, 40mm, 50mm, 63mm",
+              "Stock": 45,
+              "Cost Price": 35,
+              "Sale Price": 60,
+          },
+          {
+              "Item Name": "Socket (ساکٹ) - 25mm, 32mm, 40mm, 50mm, 63mm",
               "Stock": 40,
               "Cost Price": 25,
               "Sale Price": 40,
           },
           {
-              "Item Name": "PPRC Tee 20mm",
-              "Stock": 35,
-              "Cost Price": 30,
-              "Sale Price": 50,
+              "Item Name": (
+                  "Female Elbow (فی میل ایلبو) - 25 x 1/2\", 25 x 3/4\", 32 x"
+                  ' 1/2", 32 x 3/4", 32 x 1", 40 x 1 1/4"'
+              ),
+              "Stock": 25,
+              "Cost Price": 150,
+              "Sale Price": 220,
           },
           {
-              "Item Name": "PPRC Socket 20mm",
+              "Item Name": (
+                  "Female Tee (فی میل ٹی) - 25 x 1/2\", 25 x 3/4\", 32 x 1/2\","
+                  ' 32 x 3/4", 32 x 1", 40 x 1 1/4"'
+              ),
+              "Stock": 20,
+              "Cost Price": 180,
+              "Sale Price": 260,
+          },
+          {
+              "Item Name": (
+                  "Female Socket (فی میل ساکٹ) - 25 x 1/2\", 25 x 3/4\", 32 x"
+                  ' 1/2", 32 x 3/4", 32 x 1", 40 x 1 1/4", 50 x 1 1/2", 63 x'
+                  ' 2"'
+              ),
+              "Stock": 22,
+              "Cost Price": 140,
+              "Sale Price": 200,
+          },
+          {
+              "Item Name": (
+                  "Male Elbow (میل ایلبو) - 25 x 1/2\", 25 x 3/4\", 32 x 1/2\","
+                  ' 32 x 3/4", 32 x 1", 40 x 1 1/4"'
+              ),
+              "Stock": 18,
+              "Cost Price": 160,
+              "Sale Price": 230,
+          },
+          {
+              "Item Name": (
+                  "Male Tee (میل ٹی) - 25 x 1/2\", 25 x 3/4\", 32 x 1/2\", 32"
+                  ' x 3/4", 32 x 1", 40 x 1 1/4"'
+              ),
+              "Stock": 15,
+              "Cost Price": 190,
+              "Sale Price": 270,
+          },
+          {
+              "Item Name": (
+                  "Male Socket (میل ساکٹ) - 25 x 1/2\", 25 x 3/4\", 32 x 1/2\","
+                  ' 32 x 3/4", 32 x 1", 40 x 1 1/4", 50 x 1 1/2", 63 x 2"'
+              ),
+              "Stock": 16,
+              "Cost Price": 150,
+              "Sale Price": 210,
+          },
+          {
+              "Item Name": (
+                  "Reducing Elbow (ریڈیوسنگ ایلبو) - 25 x 32mm, 25 x 40mm, 32 x"
+                  " 40mm"
+              ),
+              "Stock": 12,
+              "Cost Price": 70,
+              "Sale Price": 110,
+          },
+          {
+              "Item Name": (
+                  "Reducing Tee (ریڈیوسنگ ٹی) - 25 x 1/2\", 25 x 3/4\", 32 x"
+                  ' 1/2", 32 x 3/4", 32 x 1", 40 x 1 1/4"'
+              ),
+              "Stock": 14,
+              "Cost Price": 80,
+              "Sale Price": 120,
+          },
+          {
+              "Item Name": (
+                  "Reducing Socket (ریڈیوسنگ ساکٹ) - 25 x 1/2\", 25 x 3/4\","
+                  ' 32 x 1/2", 32 x 3/4", 32 x 1", 40 x 1 1/4", 50 x 1 1/2",'
+                  ' 63 x 2"'
+              ),
+              "Stock": 15,
+              "Cost Price": 60,
+              "Sale Price": 95,
+          },
+          {
+              "Item Name": "Mixer Elbow (مکسر ایلبو) - 25mm",
+              "Stock": 10,
+              "Cost Price": 350,
+              "Sale Price": 500,
+          },
+          {
+              "Item Name": (
+                  "Gate Valve (گیٹ والو) - 25mm, 32mm, 40mm, 50mm, 63mm"
+              ),
+              "Stock": 8,
+              "Cost Price": 450,
+              "Sale Price": 650,
+          },
+          {
+              "Item Name": "Plug (پلگ) - 20mm (1/2\"), 25mm (3/4\"), 32mm (1\")",
               "Stock": 30,
               "Cost Price": 20,
               "Sale Price": 35,
           },
           {
-              "Item Name": "PPRC Ball Valve 20mm",
+              "Item Name": "End Cap (اینڈ کیپ) - 25mm, 32mm",
+              "Stock": 25,
+              "Cost Price": 25,
+              "Sale Price": 40,
+          },
+          {
+              "Item Name": "Clamp (کلیمپ) - 25mm, 32mm",
+              "Stock": 50,
+              "Cost Price": 15,
+              "Sale Price": 25,
+          },
+          {
+              "Item Name": "Nail Clamp (نیل کلیمپ) - 25mm, 32mm",
+              "Stock": 60,
+              "Cost Price": 10,
+              "Sale Price": 20,
+          },
+          {
+              "Item Name": "Over Cross (اوور کراس) - 25mm, 32mm, 40mm",
               "Stock": 12,
-              "Cost Price": 450,
-              "Sale Price": 650,
+              "Cost Price": 90,
+              "Sale Price": 140,
+          },
+          {
+              "Item Name": "UNION (یونین) - 25mm, 32mm, 40mm",
+              "Stock": 10,
+              "Cost Price": 250,
+              "Sale Price": 360,
           },
       ]),
       "🚰 PVC سیکشن": pd.DataFrame([
@@ -72,18 +216,6 @@ if "inventory" not in st.session_state:
               "Cost Price": 30,
               "Sale Price": 50,
           },
-          {
-              "Item Name": "PVC Socket 1 inch",
-              "Stock": 4,
-              "Cost Price": 40,
-              "Sale Price": 65,
-          },
-          {
-              "Item Name": "PVC Tee 1 inch",
-              "Stock": 12,
-              "Cost Price": 45,
-              "Sale Price": 70,
-          },
       ]),
       "🟡 براس آئٹمز (Brass Items)": pd.DataFrame([
           {
@@ -91,12 +223,6 @@ if "inventory" not in st.session_state:
               "Stock": 18,
               "Cost Price": 1200,
               "Sale Price": 1500,
-          },
-          {
-              "Item Name": "Brass T-Cock",
-              "Stock": 10,
-              "Cost Price": 850,
-              "Sale Price": 1200,
           },
           {
               "Item Name": "Brass Stop Cock",
@@ -112,12 +238,6 @@ if "inventory" not in st.session_state:
               "Cost Price": 150,
               "Sale Price": 220,
           },
-          {
-              "Item Name": "Plastic T-Cock",
-              "Stock": 15,
-              "Cost Price": 250,
-              "Sale Price": 380,
-          },
       ]),
       "⚪ اسٹیل آئٹمز (Steel Items)": pd.DataFrame([
           {
@@ -126,12 +246,6 @@ if "inventory" not in st.session_state:
               "Cost Price": 900,
               "Sale Price": 1300,
           },
-          {
-              "Item Name": "Steel Floor Waste",
-              "Stock": 7,
-              "Cost Price": 350,
-              "Sale Price": 500,
-          },
       ]),
       "🚿 واش بیسن اور فٹنگز": pd.DataFrame([
           {
@@ -139,18 +253,6 @@ if "inventory" not in st.session_state:
               "Stock": 8,
               "Cost Price": 2500,
               "Sale Price": 3400,
-          },
-          {
-              "Item Name": "Basin Waste Pipe",
-              "Stock": 12,
-              "Cost Price": 120,
-              "Sale Price": 180,
-          },
-          {
-              "Item Name": "Sink Waste",
-              "Stock": 10,
-              "Cost Price": 150,
-              "Sale Price": 230,
           },
       ]),
   }
@@ -177,7 +279,7 @@ menu = st.sidebar.selectbox("مینو منتخب کریں (Menu)", [
     "📊 ایگزیکٹو ڈیش بورڈ (Dashboard)",
     "💰 ڈیلی سیل اور پرافٹ انٹری (Daily Sales & Profit)",
     "📥 اسٹاک ان / آؤট لیجر (Stock In/Out)",
-    "📦 PPRC سیکشن",
+    "📦 PPRC سیکشن (مکمل سائز کیٹلاگ)",
     "🚰 PVC سیکشن",
     "🟡 براس آئٹمز (Brass Items)",
     "🟢 پلاسٹک آئٹمز (Plastic Items)",
@@ -203,7 +305,6 @@ if menu == "📊 ایگزیکٹو ڈیش بورڈ (Dashboard)":
           "Stock": row["Stock"],
       })
 
-  # Calculate Sales & Profit
   total_revenue = (
       st.session_state["sales_history"]["Total Amount"].sum()
       if not st.session_state["sales_history"].empty
@@ -245,9 +346,7 @@ elif menu == "💰 ڈیلی سیل اور پرافٹ انٹری (Daily Sales & P
   with st.form("sales_form"):
     col1, col2 = st.columns(2)
     with col1:
-      item_name = st.text_input(
-          "آئٹم کا نام (مثلاً: Brass Bibcock یا PPRC Elbow 20mm)"
-      )
+      item_name = st.text_input("آئٹم کا نام اور سائز")
       qty_sold = st.number_input(
           "فروخت ہونے والی تعداد (Quantity)", min_value=1, value=1
       )
@@ -259,9 +358,7 @@ elif menu == "💰 ڈیلی سیل اور پرافٹ انٹری (Daily Sales & P
           "فی یونٹ فروخت قیمت (Selling Price)", min_value=0.0, value=0.0
       )
 
-    submit_sale = st.form_submit_button(
-        "فروخت درج کریں اور منافع محاسبه کریں (Submit Sale)"
-    )
+    submit_sale = st.form_submit_button("فروخت درج کریں اور منافع محاسبه کریں")
 
     if submit_sale and item_name:
       total_amt = qty_sold * sale_p
@@ -293,7 +390,7 @@ elif menu == "📥 اسٹاک ان / آؤট لیجر (Stock In/Out)":
   with st.form("stock_inout_form"):
     col1, col2 = st.columns(2)
     with col1:
-      io_item = st.text_input("آئٹم کا نام")
+      io_item = st.text_input("آئٹم کا نام اور سائز")
       io_type = st.selectbox(
           "عمل کی نوعیت (Type)", ["نیا مال خریدا (Stock IN)", "مال باہر گیا (Stock OUT)"]
       )
@@ -319,19 +416,12 @@ elif menu == "📥 اسٹاک ان / آؤট لیجر (Stock In/Out)":
   st.markdown("### 📋 اسٹاک ان/آؤٹ ہسٹری:")
   st.dataframe(st.session_state["stock_ledger"], use_container_width=True)
 
-# 4. Inventory Sections (PPRC, PVC, Brass, Plastic, Steel, Wash Basin)
-elif menu in [
-    "📦 PPRC سیکشن",
-    "🚰 PVC سیکشن",
-    "🟡 براس آئٹمز (Brass Items)",
-    "🟢 پلاسٹک آئٹمز (Plastic Items)",
-    "⚪ اسٹیل آئٹمز (Steel Items)",
-    "🚿 واش بیسن اور فٹنگز",
-]:
+# 4. Inventory Sections
+else:
   st.subheader(f"انوینٹری اسٹاک - {menu}")
   st.markdown(
-      "آپ یہاں براہِ راست **Stock (تعداد)** تبدیل کریں، کل مالیت خود بخود"
-      " کیلکولیٹ ہو جائے گی!"
+      "آپ یہاں تمام فٹنگز اور ان کے سائز دیکھ سکتے ہیں اور براہِ راست **Stock"
+      " (تعداد)** تبدیل کر سکتے ہیں!"
   )
 
   df = st.session_state["inventory"][menu]
@@ -342,12 +432,11 @@ elif menu in [
   edited_df["Total Value"] = edited_df["Stock"] * edited_df["Cost Price"]
   st.session_state["inventory"][menu] = edited_df
 
-  # Low stock warning check
   low_stock_filter = edited_df[edited_df["Stock"] < 5]
   if not low_stock_filter.empty:
     st.warning("⚠️ انتباہ: اس سیکشن میں مندرجہ ذیل آئٹمز کی مقدار 5 سے کم ہے:")
     st.dataframe(
         low_stock_filter[["Item Name", "Stock", "Sale Price"]],
         use_container_width=True,
-            )
-  
+              )
+        
